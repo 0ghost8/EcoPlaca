@@ -4,12 +4,11 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build:frontend",
   "outputDirectory": "frontend/dist/frontend/browser",
-  "functions": {
-    "api/**/*.ts": {
-      "excludeFiles": "backend/.env"
-    }
-  },
   "routes": [
+    {
+      "src": "/api(/.*)?",
+      "dest": "https://ecoplaca-production.up.railway.app/api$1"
+    },
     {
       "handle": "filesystem"
     },
